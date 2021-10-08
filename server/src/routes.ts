@@ -1,8 +1,12 @@
- import {Express,Request,Response} from 'express';
- 
- function routes(app:Express){
+import { Express, Request, Response } from "express";
+import { createUserHandler } from "./controller/user.controller";
+import validateResource from './middleware/validateResource'
+import { createUserSchema } from "./schema/user.schema";
 
-    app.get('/healthcheck',(req: Request,res: Response)=>res.sendStatus(200))
- }
+function routes(app: Express) {
+  app.get("/healthcheck", (req: Request, res: Response) => res.sendStatus(200));
 
- export default routes
+  app.post("/api/users", validateResource(createUserSchema), createUserHandler);
+}
+
+export default routes;
