@@ -6,7 +6,7 @@ import { UserDocument } from "./user.model";
 export interface SchemaDocument extends mongoose.Document {
   user: UserDocument['_id'];
   valid: boolean;
-  userAgent: string;
+  userAgent: string; 
   createdAt: Date;
   updatedAt: Date;
 }
