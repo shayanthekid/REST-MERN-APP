@@ -15,8 +15,8 @@ return jwt.sign(object,privateKey,{
 
 export function verifyJwt(token:string){
 try {
-    const decoded = jwt.verify(token, publicKey);
-   return {
+ const decoded = jwt.verify(token, publicKey);
+    return {
         valid: true,
         expired : false,
         decoded,
